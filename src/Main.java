@@ -13,7 +13,7 @@ public class Main {
         System.out.println("Имя автора: " + author1.getNameOfAuthor());
         System.out.println("Фамилия автора: " + author1.getSureNameOfAuthor());
         System.out.println("Год издания: " + book1.getPublishingYear());
-        book1.setPublishingYear(2024);
+        book1.setPublishingYear(2000);
         System.out.println("Год издания: " + book1.getPublishingYear());
     }
 }
