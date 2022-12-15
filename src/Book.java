@@ -1,16 +1,13 @@
+import java.time.LocalDate;
 public class Book {
     private String nameOfBook;
     private int publishingYear;
-    private String nameOfAuthor;
-    private String sureNameOfAuthor;
-
-    public Book (String nameOfBook, int publishingYear, String nameOfAuthor, String sureNameOfAuthor) {
+    private Author author;
+    public Book (String nameOfBook, int publishingYear, Author author) {
         this.nameOfBook = nameOfBook;
         this.publishingYear = publishingYear;
-        this.nameOfAuthor = nameOfAuthor;
-        this.sureNameOfAuthor = sureNameOfAuthor;
+        this.author = new Author(author.getNameOfAuthor(), author.getSureNameOfAuthor());
     }
-
     public String getNameOfBook() {
         return this.nameOfBook;
     }
@@ -18,14 +15,11 @@ public class Book {
         return this.publishingYear;
     }
     public void setPublishingYear(int publishingYear) {
+        int currentYear = LocalDate.now().getYear();
+        if (publishingYear > currentYear) {
+            System.out.println("Введен некорректный год издания: " + publishingYear);
+            return;
+        }
         this.publishingYear = publishingYear;
     }
-    public String getNameOfAuthor() {
-        return this.nameOfAuthor;
-    }
-    public String getSureNameOfAuthor() {
-        return this.sureNameOfAuthor;
-    }
-
 }
-
